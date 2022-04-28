@@ -1,16 +1,22 @@
-from __main__ import app
-from show import display
-
+from modules.show import display
 
 # Initialise the value
 name="John Doe"
 date="DD/MM/YY"
 
-@app.route('/student1')
+def functions():
+
+    d = {
+        '/student1': student1_main,
+        '/student1/basic': student1_basic,
+        '/student1/scatter': student1_scatter,
+        '/student1/bar': student1_bar
+    }
+    return d 
+
 def student1_main(): # UNIQUE NAME 
     return f'Done by: {name}'
 
-@app.route("/student1/basic")
 def student1_basic():
     import random
     from matplotlib.figure import Figure
@@ -31,7 +37,6 @@ def student1_basic():
     ax.plot(x,y)
     return display(fig, name, date)
 
-@app.route("/student1/scatter")
 def student1_scatter():
     import random
     from matplotlib.figure import Figure
@@ -52,7 +57,6 @@ def student1_scatter():
     ax.scatter(x,y)
     return display(fig, name, date)
 
-@app.route("/student1/bar")
 def student1_bar():
     import pandas as pd
     from matplotlib.figure import Figure

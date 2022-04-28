@@ -1,16 +1,23 @@
-from __main__ import app
-from show import display
+from modules.show import display
 from modules.fetchCSV import downloadCSV as getCSV
 
 # Initialise the value
 name="ACE"
 date="DD/MM/YY"
 
-@app.route('/student2')
+def functions():
+
+    d = {
+        '/student2': student2_main,
+        '/student2/basic': student2_basic,
+        '/student2/fetchCSV': student2_fetchCSV
+    }
+
+    return d 
+
 def student2_main(): # UNIQUE NAME 
     return f'Done by: {name}'
 
-@app.route("/student2/basic")
 def student2_basic():
     import random
     from matplotlib.figure import Figure
@@ -31,7 +38,6 @@ def student2_basic():
     ax.plot(x,y)
     return display(fig, name, date)
 
-@app.route("/student2/fetchCSV")
 def student2_fetchCSV():
     import random
     from matplotlib.figure import Figure

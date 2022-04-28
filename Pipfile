@@ -4,14 +4,15 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-psycopg2-binary = "*"
 flask-restx = "*"
 requests = "*"
 Flask = "*"
-Flask-SQLAlchemy = "*"
 Flask-Cors = "*"
+gunicorn = "*"
+matplotlib = "*"
+pandas = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.9"
+python_version = "3.10"
